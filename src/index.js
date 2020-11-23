@@ -67,9 +67,9 @@ app.put('/projects/:id', (request, response) => {
 
     const projectIndex = projects.findIndex(project => project.id === id);
 
-    if (projectIndex < 0) {
+    if (projectIndex === -1) {
         return response.status(400).json({ error: 'Project not found.'})
-    } 
+    }; 
 
     const project = {
         id,
@@ -87,9 +87,9 @@ app.delete('/projects/:id', (request, response) => {
 
     const projectIndex = projects.findIndex(project => project.id === id);
 
-    if (projectIndex < 0) {
+    if (projectIndex === -1) {
         return response.status(400).json({ error: 'Project not found.'})
-    }
+    };
 
     projects.splice(projectIndex, 1); 
 
